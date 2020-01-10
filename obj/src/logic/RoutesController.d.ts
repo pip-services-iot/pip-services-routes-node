@@ -1,0 +1,30 @@
+import { ConfigParams } from 'pip-services3-commons-node';
+import { IConfigurable } from 'pip-services3-commons-node';
+import { IReferences } from 'pip-services3-commons-node';
+import { IReferenceable } from 'pip-services3-commons-node';
+import { FilterParams } from 'pip-services3-commons-node';
+import { PagingParams } from 'pip-services3-commons-node';
+import { DataPage } from 'pip-services3-commons-node';
+import { ICommandable } from 'pip-services3-commons-node';
+import { CommandSet } from 'pip-services3-commons-node';
+import { ObjectRouteV1 } from '../data/version1/ObjectRouteV1';
+import { IRoutesController } from './IRoutesController';
+export declare class RoutesController implements IConfigurable, IReferenceable, ICommandable, IRoutesController {
+    private static _defaultConfig;
+    private _dependencyResolver;
+    private _persistence;
+    private _commandSet;
+    configure(config: ConfigParams): void;
+    setReferences(references: IReferences): void;
+    getCommandSet(): CommandSet;
+    private compressPositions;
+    getRoutes(correlationId: string, filter: FilterParams, paging: PagingParams, callback: (err: any, page: DataPage<ObjectRouteV1>) => void): void;
+    getRouteById(correlationId: string, route_id: string, callback: (err: any, route: ObjectRouteV1) => void): void;
+    private fixRoute;
+    createRoute(correlationId: string, route: ObjectRouteV1, callback: (err: any, route: ObjectRouteV1) => void): void;
+    setRoute(correlationId: string, route: ObjectRouteV1, callback?: (err: any, route: ObjectRouteV1) => void): void;
+    setRoutes(correlationId: string, routes: ObjectRouteV1[], callback?: (err: any) => void): void;
+    updateRoute(correlationId: string, route: ObjectRouteV1, callback: (err: any, route: ObjectRouteV1) => void): void;
+    deleteRouteById(correlationId: string, route_id: string, callback: (err: any, route: ObjectRouteV1) => void): void;
+    deleteRoutes(correlationId: string, filter: FilterParams, callback?: (err: any) => void): void;
+}
